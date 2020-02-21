@@ -60,7 +60,7 @@ def git_commit_push():
     repo.index.commit(
         ":memo: Update " + datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
     )
-    repo.remote("origin").push("HEAD:refs/for/master")
+    repo.remote("origin").push("master")
 
 
 def main():
@@ -78,7 +78,7 @@ def main():
 
     readme.write()
 
-    # git_commit_push()
+    git_commit_push()
 
     print("save logs successfully")
 
