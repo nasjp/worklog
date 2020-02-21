@@ -60,7 +60,7 @@ def main():
     repo.index.commit(
         ":memo: Update " + datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
     )
-    repo.remote.push("master")
+    repo.remote(name="origin").push()
 
 
 if __name__ == "__main__":
