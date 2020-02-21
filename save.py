@@ -1,9 +1,11 @@
-#!/usr/bin/env python
-
+import datetime
 import os
 from typing import List
 
+import git
+
 log_dir = "logs"
+readme_file = "README.md"
 
 
 class Log:
@@ -32,7 +34,7 @@ class ReadMe:
         self.logs.append(log)
 
     def write(self):
-        with open("README.md", mode="w") as f:
+        with open(readme_file, mode="w") as f:
             f.write("# work log\n\n")
 
             for log in self.logs:
@@ -52,6 +54,13 @@ def main():
             readme.add_log(log)
 
     readme.write()
+
+    repo = git.Repo()
+    repo.index.add([log_dir, readme_file])
+    repo.index.commit(
+        ":memo: Update " + datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+    )
+    repo.remote.push("master")
 
 
 if __name__ == "__main__":
