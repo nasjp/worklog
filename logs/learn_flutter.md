@@ -11,6 +11,23 @@ Refs: [Flutter 全部俺 Advent Calendar 2019 - Adventar](https://adventar.org/c
     - dartfmt とかある
   - [x] [dart-lang/dart-vim-plugin: Syntax highlighting for Dart in Vim](https://github.com/dart-lang/dart-vim-plugin) vim はこれで良さそう
     - [ ] vim-lsp と併用するのかこれだけでできるのか後に確認
+  - [x] androidstudio のインストール
+    - [x] emulator の作成
+    - 適当にプロジェクトを作ってそっから作る
+    - `~/Library/Android/sdk/emulator/emulator -avd Pixel_3a_API_R`
+  - [x] xcode のインストール
+    - `open -a Simulator`
+  - エミュレータを指定したローカル実行
+    ```sh
+    $ flutter emulators
+    2 available emulators:
+
+    Pixel_3a_API_R      • Pixel 3a API R • Google • android
+    apple_ios_simulator • iOS Simulator  • Apple  • ios
+
+    $ flutter emulators --launch apple_ios_simulator
+    $ flutter run
+    ```
 - [ ] 構文
   - [ ] 高階関数
     - 理解ができなかった
@@ -196,3 +213,9 @@ Refs: [Flutter 全部俺 Advent Calendar 2019 - Adventar](https://adventar.org/c
             - `dev_dependencies` と `dependencies`
               - `dev_dependencies` に テストやLintツール、Utility系のパッケージなど、成果物のアプリに含まれないパッケージ
           - `flutter pub get` でパッケージインストール
+-[ ] 参考
+  - プロジェクト作成
+    - [Test drive - Flutter](https://flutter.dev/docs/get-started/test-drive?tab=terminal#androidstudio)
+    - `flutter create myapp`
+  - [Flutter開発環境構築(Mac編) - Qiita](https://qiita.com/akatsukaha/items/3b8a5a6d94a3cdb1e047)
+
