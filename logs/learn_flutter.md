@@ -82,7 +82,117 @@ Refs: [Flutter 全部俺 Advent Calendar 2019 - Adventar](https://adventar.org/c
 
         class Shark extends Fish with Swimmer {}
         ```
-    - [x]`Enum`
+    - [x] `Enum`
         - ドメインオブジェクトを作る
+    - [x] Null-aware演算子
+      - `nullableObject?.doSomething();`
+        - null じゃないときだけ実行
+      - `var something = nullableObject?.something;`
+        - フィールドにも使える
+      - `String str = nullableNum?.toString() ?? '';`
+        - 三項演算子の短縮(系)みたいなの
+      - 左辺が null のときだけ右辺を代入する
+        ```dart
+        String str = null;
+        str ??= '';
+        ```
+    - [x] カスケード演算子
+      - map みたいな感じ?
+      ```dart
+      var list = [0, 1, 2, 3];
+      list
+        ..add(4)
+        ..addAll([5, 6, 7]);
+      ```
+    - [ ] Stream
+      - RxJava を勉強する
+      - 知らない
+      - RxDart をあわせて
+    - [ ] asnyc / await
+      ```dart
+      import 'package:http/http.dart' as http;
 
-- [ ] [すぐにFlutterを始めたい人のためのDart入門(後編)](https://itome.team/blog/2019/12/flutter-advent-calendar-day4/) 明日はここから
+      // Futureのメソッドチェーン <- 使わない
+      void sendRequest() {
+        http
+          .get(url)
+          .then((response) {
+            print(response);
+          })
+          .catchError((error) => print(error));
+      }
+
+      // async / await
+      Future<void> sendRequest() async {
+        try {
+          final response = await http.get(url);
+          print(response);
+        } on Exception caach (error) {
+          print(error);
+        }
+      }
+      ```
+    - [ ] await for
+    ```dart
+    Future<int> sumStream(Stream<int> stream) async {
+      var sum = 0;
+      await for (var value in stream) {
+        sum += value;
+      }
+      return sum;
+    }
+    ```
+    - [ ] async\*/yield
+      - 後で確認
+    - [ ] 新しい構文
+      - スプレッド演算子
+        ```dart
+          var list1 = [0, 1, 2, 3];
+          var list2 = [4, 5, 6];
+        ```
+      - `Collection if`
+        ```dart
+          Widget build(BuildContext context) {
+            return Row(
+              children: [
+                IconButton(icon: Icon(Icons.menu)),
+                Expanded(child: title),
+                if (isAndroid)
+                  IconButton(icon: Icon(Icons.search)),
+              ],
+            );
+          }
+        ```
+      - `Collection for`
+        ```dart
+        Widget build(BuildContext context) {
+          return Row(
+            children: [
+              for (final title in titles) Text(title),
+            ],
+          );
+        }
+        ```
+      - `Static extension methods`
+        - 既存のクラスにあとから関数を追加
+        ```dart
+          extension MyFancyList<T> on List<T> {
+            /// Whether this list has an even length.
+            bool get isLengthEven => this.length.isEven;
+          }
+
+          [0, 1, 2].isLengthEven // -> false
+        ```
+      - プロジェクト構成
+        - `lib` ディレクトリにソースコードを置く
+        - ディレクトリがパッケージ
+        - インポート
+          - `import 'pakcage:{package_name}/{file_path}.dart';`
+          - `import 'package:flutter/material.dart';`
+          - 基本的にすべて絶対パスインポートだけしてれば良い
+        - `パッケージマネージャ`
+          - `pubspec.yaml`
+          - `pubspec.lock` も含める
+            - `dev_dependencies` と `dependencies`
+              - `dev_dependencies` に テストやLintツール、Utility系のパッケージなど、成果物のアプリに含まれないパッケージ
+          - `flutter pub get` でパッケージインストール
