@@ -30,6 +30,7 @@ Refs: [Flutter 全部俺 Advent Calendar 2019 - Adventar](https://adventar.org/c
     $ flutter run
     ```
 - [ ] 構文
+  - [Language tour | Dart](https://dart.dev/guides/language/language-tour)
   - [ ] 高階関数
     - 理解ができなかった
     - `Widget Function(BuildContext) builder = (context) => Container();`
