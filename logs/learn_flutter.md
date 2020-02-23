@@ -10,6 +10,7 @@ Refs: [Flutter 全部俺 Advent Calendar 2019 - Adventar](https://adventar.org/c
   - [x] [sdk/pkg/analyzer at master · dart-lang/sdk](https://github.com/dart-lang/sdk/tree/master/pkg/analyzer) をダウンロード
     - dartfmt とかある
   - [x] [dart-lang/dart-vim-plugin: Syntax highlighting for Dart in Vim](https://github.com/dart-lang/dart-vim-plugin) vim はこれで良さそう
+  - [x] [thosakwe/vim-flutter: Vim commands for Flutter, including hot-reload-on-save and more. 🦋](https://github.com/thosakwe/vim-flutter) 便利なコマンド等はこれ
     - [ ] vim-lsp と併用するのかこれだけでできるのか後に確認
   - [x] androidstudio のインストール
     - [x] emulator の作成
@@ -218,4 +219,4 @@ Refs: [Flutter 全部俺 Advent Calendar 2019 - Adventar](https://adventar.org/c
     - [Test drive - Flutter](https://flutter.dev/docs/get-started/test-drive?tab=terminal#androidstudio)
     - `flutter create myapp`
   - [Flutter開発環境構築(Mac編) - Qiita](https://qiita.com/akatsukaha/items/3b8a5a6d94a3cdb1e047)
-
+  - [Page 1 | Top Flutter packages](https://pub.dev/flutter/packages) ここでパッケージを探せる
