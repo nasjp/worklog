@@ -13,16 +13,16 @@ Refs: <https://docs.microsoft.com/ja-jp/azure/sql-database/saas-tenancy-app-desi
       - <https://dev.mysql.com/doc/refman/5.6/ja/partitioning-range.html>
         - table 定義にそれぞれのパーティションの定義を書く
         - id が 1~ 99999999 はXXみたいな感じになる
-        - 今回は使えない
+        - SaaSは使えない
     - LIST パーティショニング
       - <https://dev.mysql.com/doc/refman/5.6/ja/partitioning-list.html>
         - これも table 定義にそれぞれのパーティションの定義を書く
         - id も
-        - 今回は使えない
+        - SaaSは使えない
     - COLUMNS パーティショニング
       - <https://dev.mysql.com/doc/refman/5.6/ja/partitioning-columns.html>
-        - RANGE パーティショニング と LIST パーティショニング は id だったがそれを別のカラムにできるだけ
-        - つまり使えない
+        - RANGE パーティショニング と LIST パーティショニング は id だったがそれを別のカラムにできる
+        - これは使えるかも
     - HASH パーティショニング
       - <https://dev.mysql.com/doc/refman/5.6/ja/partitioning-hash.html>
         - hash 値を格納するカラムとパーティショニングする数を定義に書く
@@ -42,4 +42,4 @@ Refs: <https://docs.microsoft.com/ja-jp/azure/sql-database/saas-tenancy-app-desi
         - ハッシュ関数がMysqlから提供される
     - サブパーティショニング
       - パーティショニングをさらにパーティショニング
-        - 今回は使えない
+        - SaaSは使えない
